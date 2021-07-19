@@ -14,6 +14,36 @@ powerline_right=$(option "@nova-powerline-right" )
 powerline_left=$(option "@nova-powerline-left" )
 
 #
+# themes
+#
+
+theme=$(option "@nova-theme" "nord")
+
+if [ $theme = "dracula" ]; then
+  tmux set-option -g "@nova-pane-active-border-style" "#44475a"
+  tmux set-option -g "@nova-pane-border-style" "#282a36"
+  tmux set-option -g "@nova-plugins-mode-colors" "#50fa7b #282a36"
+  tmux set-option -g "@nova-plugins-whoami-colors" "#6272a4 #f8f8f2"
+  tmux set-option -g "@nova-status-style-bg" "#44475a"
+  tmux set-option -g "@nova-status-style-fg" "#f8f8f2"
+  tmux set-option -g "@nova-status-style-active-bg" "#282a36"
+  tmux set-option -g "@nova-status-style-active-fg" "#f8f8f2"
+  tmux set-option -g "@nova-plugins-spotify-colors" "#50fa7b #282a36"
+fi
+
+if [ $theme = "nord" ]; then
+  tmux set-option -g "@nova-pane-active-border-style" "#44475a"
+  tmux set-option -g "@nova-pane-border-style" "#282a36"
+  tmux set-option -g "@nova-plugins-mode-colors" "#88c0d0 #2e3440"
+  tmux set-option -g "@nova-plugins-whoami-colors" "#81a1c1 #2e3440"
+  tmux set-option -g "@nova-status-style-bg" "#4c566a"
+  tmux set-option -g "@nova-status-style-fg" "#d8dee9"
+  tmux set-option -g "@nova-status-style-active-bg" "#2e3440"
+  tmux set-option -g "@nova-status-style-active-fg" "#d8dee9"
+  tmux set-option -g "@nova-plugins-spotify-colors" "#a3be8c #2e3440"
+fi
+
+#
 # status-interval
 #
 
@@ -24,16 +54,20 @@ tmux set-option -g status-interval $status_interval
 # status-style
 #
 
-status_style_bg=$(option "@nova-status-style-bg" "#44475a")
-status_style_fg=$(option "@nova-status-style-fg" "#f8f8f2")
+status_style_bg=$(option "@nova-status-style-bg")
+status_style_fg=$(option "@nova-status-style-fg")
+status_style_active_bg=$(option "@nova-status-style-active-bg")
+status_style_active_fg=$(option "@nova-status-style-active-fg")
 tmux set-option -g status-style "bg=$status_style_bg,fg=$status_style_fg"
 
 #
 # pane
 #
 
-tmux set-option -g pane-active-border-style "fg=#44475a"
-tmux set-option -g pane-border-style "fg=#282a36"
+pane_border_style=$(option "@nova-pane-border-style")
+pane_active_border_style=$(option "@nova-pane-active-border-style")
+tmux set-option -g pane-border-style "fg=${pane_border_style}"
+tmux set-option -g pane-active-border-style "fg=${pane_active_border_style}"
 
 #
 # status-left
@@ -48,7 +82,7 @@ tmux set-option -g status-left ""
 for plugin in "${status_left_plugins[@]}"; do
   if [ -f "$current_dir/$plugin.sh" ]; then
 
-    plugin_colors=$(option "@nova-plugins-$plugin-colors" "#50fa7b #333")
+    plugin_colors=$(option "@nova-plugins-$plugin-colors")
     IFS=' ' read -r -a plugin_colors <<< $plugin_colors
 
     if [ $powerline = true ] && [ -n "$(tmux show-option -gqv status-left)" ]; then
@@ -83,7 +117,7 @@ tmux set-option status-justify ${status_justify}
 #
 
 if [ $powerline = true ]; then
-  tmux set-window-option -g window-status-current-format "#[fg=${status_style_bg},bg=#282a36]"
+  tmux set-window-option -g window-status-current-format "#[fg=${status_style_bg},bg=${status_style_active_bg}]"
   tmux set-window-option -ga window-status-current-format "$powerline_left"
 fi
 
@@ -93,9 +127,9 @@ tmux set-window-option -ga window-status-format "#S:#I:#W"
 tmux set-window-option -ga window-status-format "$(padding $padding)"
 
 if [ $powerline = true ]; then
-  tmux set-window-option -ga window-status-current-format "#[fg=#f8f8f2]#[bg=#282a36]"
+  tmux set-window-option -ga window-status-current-format "#[fg=${status_style_active_fg}]#[bg=${status_style_active_bg}]"
 else
-  tmux set-window-option -g window-status-current-format "#[fg=#f8f8f2]#[bg=#282a36]"
+  tmux set-window-option -g window-status-current-format "#[fg=${status_style_active_fg}]#[bg=${status_style_active_bg}]"
 fi
 
 tmux set-window-option -ga window-status-current-format "$(padding $padding)"
@@ -103,7 +137,7 @@ tmux set-window-option -ga window-status-current-format "#S:#I:#W"
 tmux set-window-option -ga window-status-current-format "$(padding $padding)"
 
 if [ $powerline = true ]; then
-  tmux set-window-option -ga window-status-current-format "#[fg=${status_style_bg},bg=#282a36]"
+  tmux set-window-option -ga window-status-current-format "#[fg=${status_style_bg},bg=${status_style_active_bg}]"
   tmux set-window-option -ga window-status-current-format "$powerline_right"
 fi
 
@@ -121,7 +155,7 @@ tmux set-option -g status-right ""
 for plugin in "${status_right_plugins[@]}"; do
   if [ -f "$current_dir/$plugin.sh" ]; then
 
-    plugin_colors=$(option "@nova-plugins-$plugin-colors" "#50fa7b #333")
+    plugin_colors=$(option "@nova-plugins-$plugin-colors")
     IFS=' ' read -r -a plugin_colors <<< $plugin_colors
 
     if [ $powerline = true ] && [ ! -n "$(tmux show-option -gqv status-right)" ]; then
