@@ -6,31 +6,54 @@
 
 ### Installation
 
-Using [tpm](https://github.com/tmux-plugins/tpm)
+
+#### [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+
+Add this line in your `.tmux.conf`
 
 ```bash
 set -g @plugin 'o0th/tmux-nova'
 ```
 
-<kbd>Prefix</kbd> + <kbd>I</kbd>
+Hit <kbd>Prefix</kbd> + <kbd>I</kbd> to fetch the plugin and source it.
 
-### Customization
+#### Manual
 
-Themes
+Clone the repository
+
+```bash
+git clone git@github.com:o0th/tmux-nova.git ~/.tmux/plugins/tmux-nova
+```
+
+Add this line in your `.tmux.con`
+
+```bash
+run-shell ~/.tmux/plugins/tmux-nova/nova.tmux
+```
+
+Reload TMUX
+
+```bash
+tmux source-file ~/.tmux.conf
+```
+
+### Customizations
+
+#### Themes
 
 ```bash
 # one of: "dracula", "nord"; default: "dracula"
 set -g @nova-theme "dracula"
 ```
 
-Justify
+#### Justify
 
 ```bash
 # one of: "left", "right", "centre"; default: "left"
 set -g @nova-status-justify "left"
 ```
 
-Plugins
+#### Plugins
 
 ```bash
 # list from: "mode", "whoami", "spotify"; default: "mode whoami", "spotify"
