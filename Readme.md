@@ -60,6 +60,13 @@ set -g @nova-status-justify "left"
 set -g @nova-double true
 ```
 
+### Nerdfonts
+
+```bash
+# one of: true, false; default: false
+set -g @nova-nerdfonts false
+```
+
 ### Plugins
 
 ```bash

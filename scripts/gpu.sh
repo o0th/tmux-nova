@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 export LC_ALL=en_US.UTF-8
 
+current_dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $current_dir/utils.sh
+
 scripts="$HOME/.tmux/plugins/tmux-cpu/scripts"
 tmux set-option -g @gpu_percentage_format "%5.1f%%"
 tmux set-option -g @gram_percentage_format "%5.1f%%"
@@ -19,5 +22,11 @@ else
   gpu_thermometer=""
 fi
 
-echo "$($scripts/gpu_percentage.sh) ﴿ $($scripts/gram_percentage.sh)     $gpu_temp糖$gpu_thermometer"
+nerdfonts=$(option "@nova-nerdfonts" false)
+
+if [ "$nerdfonts" = true ]; then
+  echo "$($scripts/gpu_percentage.sh) ﴿ $($scripts/gram_percentage.sh)     $gpu_temp糖$gpu_thermometer"
+else
+  echo "$($scripts/gpu_percentage.sh) GPU $($scripts/gram_percentage.sh) GRAM    $gpu_temp C"
+fi
 

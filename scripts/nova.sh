@@ -9,9 +9,9 @@ source $current_dir/utils.sh
 #
 
 padding=$(option "@nova-padding" 1)
-powerline=$(option "@nova-powerline" true)
-powerline_right=$(option "@nova-powerline-right" )
-powerline_left=$(option "@nova-powerline-left" )
+nerdfonts=$(option "@nova-nerdfonts" false)
+nerdfonts_right=$(option "@nova-nerdfonts-right" )
+nerdfonts_left=$(option "@nova-nerdfonts-left" )
 double=$(option "@nova-double" true)
 
 #
@@ -100,9 +100,9 @@ for plugin in "${status_left_plugins[@]}"; do
     plugin_colors=$(option "@nova-plugins-$plugin-colors")
     IFS=' ' read -r -a plugin_colors <<< $plugin_colors
 
-    if [ $powerline = true ] && [ -n "$(tmux show-option -gqv status-left)" ]; then
-      tmux set-option -ga status-left "#[fg=${powerline_color},bg=#${plugin_colors[0]}]"
-      tmux set-option -ga status-left "$powerline_left"
+    if [ $nerdfonts = true ] && [ -n "$(tmux show-option -gqv status-left)" ]; then
+      tmux set-option -ga status-left "#[fg=${nerdfonts_color},bg=#${plugin_colors[0]}]"
+      tmux set-option -ga status-left "$nerdfonts_left"
     fi
 
     tmux set-option -ga status-left "#[fg=${plugin_colors[1]},bg=${plugin_colors[0]}]"
@@ -110,13 +110,13 @@ for plugin in "${status_left_plugins[@]}"; do
     tmux set-option -ga status-left "#($current_dir/$plugin.sh)"
     tmux set-option -ga status-left "$(padding $padding)"
 
-    [ $powerline = true ] && powerline_color="${plugin_colors[0]}"
+    [ $nerdfonts = true ] && nerdfonts_color="${plugin_colors[0]}"
   fi
 done
 
-if [ $powerline = true ] && [ ! -z $powerline_color ]; then
-  tmux set-option -ga status-left "#[fg=${powerline_color},bg=${status_style_bg}]"
-  tmux set-option -ga status-left "$powerline_left"
+if [ $nerdfonts = true ] && [ ! -z $nerdfonts_color ]; then
+  tmux set-option -ga status-left "#[fg=${nerdfonts_color},bg=${status_style_bg}]"
+  tmux set-option -ga status-left "$nerdfonts_left"
 fi
 
 
@@ -131,9 +131,9 @@ tmux set-option status-justify ${status_justify}
 # status-format
 #
 
-if [ $powerline = true ]; then
+if [ $nerdfonts = true ]; then
   tmux set-window-option -g window-status-current-format "#[fg=${status_style_bg},bg=${status_style_active_bg}]"
-  tmux set-window-option -ga window-status-current-format "$powerline_left"
+  tmux set-window-option -ga window-status-current-format "$nerdfonts_left"
 fi
 
 tmux set-window-option -g window-status-format "#[fg=$status_style_fg]#[bg=$status_style_bg]"
@@ -141,7 +141,7 @@ tmux set-window-option -ga window-status-format "$(padding $padding)"
 tmux set-window-option -ga window-status-format "#S:#I:#W"
 tmux set-window-option -ga window-status-format "$(padding $padding)"
 
-if [ $powerline = true ]; then
+if [ $nerdfonts = true ]; then
   tmux set-window-option -ga window-status-current-format "#[fg=${status_style_active_fg}]#[bg=${status_style_active_bg}]"
 else
   tmux set-window-option -g window-status-current-format "#[fg=${status_style_active_fg}]#[bg=${status_style_active_bg}]"
@@ -151,9 +151,9 @@ tmux set-window-option -ga window-status-current-format "$(padding $padding)"
 tmux set-window-option -ga window-status-current-format "#S:#I:#W"
 tmux set-window-option -ga window-status-current-format "$(padding $padding)"
 
-if [ $powerline = true ]; then
+if [ $nerdfonts = true ]; then
   tmux set-window-option -ga window-status-current-format "#[fg=${status_style_active_bg},bg=${status_style_bg}]"
-  tmux set-window-option -ga window-status-current-format "$powerline_left"
+  tmux set-window-option -ga window-status-current-format "$nerdfonts_left"
 fi
 
 
@@ -174,12 +174,12 @@ for plugin in "${status_right_plugins[@]}"; do
     plugin_colors=$(option "@nova-plugins-$plugin-colors")
     IFS=' ' read -r -a plugin_colors <<< $plugin_colors
 
-    if [ $powerline = true ] && [ ! -n "$(tmux show-option -gqv status-right)" ]; then
+    if [ $nerdfonts = true ] && [ ! -n "$(tmux show-option -gqv status-right)" ]; then
       tmux set-option -ga status-right "#[fg=${plugin_colors[0]},bg=#${status_style_bg}]"
-      tmux set-option -ga status-right "$powerline_right"
-    elif [ $powerline = true ] && [ -n "$(tmux show-option -gqv status-right)" ]; then
-      tmux set-option -ga status-right "#[fg=${plugin_colors[0]},bg=#${powerline_color}]"
-      tmux set-option -ga status-right "$powerline_right"
+      tmux set-option -ga status-right "$nerdfonts_right"
+    elif [ $nerdfonts = true ] && [ -n "$(tmux show-option -gqv status-right)" ]; then
+      tmux set-option -ga status-right "#[fg=${plugin_colors[0]},bg=#${nerdfonts_color}]"
+      tmux set-option -ga status-right "$nerdfonts_right"
     fi
 
     tmux set-option -ga status-right "#[fg=${plugin_colors[1]},bg=${plugin_colors[0]}]"
@@ -187,7 +187,7 @@ for plugin in "${status_right_plugins[@]}"; do
     tmux set-option -ga status-right "#($current_dir/$plugin.sh)"
     tmux set-option -ga status-right "$(padding $padding)"
 
-    [ $powerline = true ] && powerline_color="${plugin_colors[0]}"
+    [ $nerdfonts = true ] && nerdfonts_color="${plugin_colors[0]}"
   fi
 done
 
@@ -200,7 +200,7 @@ status_bottom_left_plugins=$(option "@nova-status-bottom-left-plugins" "spotify"
 IFS=' ' read -r -a status_bottom_left_plugins <<< $status_bottom_left_plugins
 
 tmux set-option -g status-format[1] "#[fill=$status_style_double_bg]#[align=left]"
-powerline_color="$status_style_double_bg"
+nerdfonts_color="$status_style_double_bg"
 
 for plugin in "${status_bottom_left_plugins[@]}"; do
   if [ -f "$current_dir/$plugin.sh" ]; then
@@ -208,9 +208,9 @@ for plugin in "${status_bottom_left_plugins[@]}"; do
     plugin_colors=$(option "@nova-plugins-$plugin-colors")
     IFS=' ' read -r -a plugin_colors <<< $plugin_colors
 
-    if [ $powerline = true ] && [ "$(tmux show-option -gqv status-format[1])" != "#[align=left]"]; then
-      tmux set-option -ga status-format[1] "#[fg=${powerline_color},bg=#${plugin_colors[0]}]"
-      tmux set-option -ga status-format[1] "$powerline_left"
+    if [ $nerdfonts = true ] && [ "$(tmux show-option -gqv status-format[1])" != "#[align=left]"]; then
+      tmux set-option -ga status-format[1] "#[fg=${nerdfonts_color},bg=#${plugin_colors[0]}]"
+      tmux set-option -ga status-format[1] "$nerdfonts_left"
     fi
 
     tmux set-option -ga status-format[1] "#[fg=${plugin_colors[1]},bg=${plugin_colors[0]}]"
@@ -218,13 +218,13 @@ for plugin in "${status_bottom_left_plugins[@]}"; do
     tmux set-option -ga status-format[1] "#($current_dir/$plugin.sh)"
     tmux set-option -ga status-format[1] "$(padding $padding)"
 
-    [ $powerline = true ] && powerline_color="${plugin_colors[0]}"
+    [ $nerdfonts = true ] && nerdfonts_color="${plugin_colors[0]}"
   fi
 done
 
-if [ $powerline = true ] && [ ! -z $powerline_color ]; then
-  tmux set-option -ga status-format[1] "#[fg=${powerline_color},bg=${status_style_double_bg}]"
-  tmux set-option -ga status-format[1] "$powerline_left"
+if [ $nerdfonts = true ] && [ ! -z $nerdfonts_color ]; then
+  tmux set-option -ga status-format[1] "#[fg=${nerdfonts_color},bg=${status_style_double_bg}]"
+  tmux set-option -ga status-format[1] "$nerdfonts_left"
 fi
 
 
@@ -232,7 +232,7 @@ fi
 # status-bottom-right
 #
 
-powerline_color="$status_style_double_bg"
+nerdfonts_color="$status_style_double_bg"
 
 status_bottom_right_plugins=$(option "@nova-status-bottom-plugins" "cpu gpu")
 IFS=' ' read -r -a status_bottom_right_plugins <<< $status_bottom_right_plugins
@@ -245,9 +245,9 @@ for plugin in "${status_bottom_right_plugins[@]}"; do
     plugin_colors=$(option "@nova-plugins-$plugin-colors")
     IFS=' ' read -r -a plugin_colors <<< $plugin_colors
 
-    if [ $powerline = true ]; then
-      tmux set-option -ga status-format[1] "#[fg=${plugin_colors[0]},bg=#${powerline_color}]"
-      tmux set-option -ga status-format[1] "$powerline_right"
+    if [ $nerdfonts = true ]; then
+      tmux set-option -ga status-format[1] "#[fg=${plugin_colors[0]},bg=#${nerdfonts_color}]"
+      tmux set-option -ga status-format[1] "$nerdfonts_right"
     fi
 
     tmux set-option -ga status-format[1] "#[fg=${plugin_colors[1]},bg=${plugin_colors[0]}]"
@@ -255,7 +255,7 @@ for plugin in "${status_bottom_right_plugins[@]}"; do
     tmux set-option -ga status-format[1] "#($current_dir/$plugin.sh)"
     tmux set-option -ga status-format[1] "$(padding $padding)"
 
-    [ $powerline = true ] && powerline_color="${plugin_colors[0]}"
+    [ $nerdfonts = true ] && nerdfonts_color="${plugin_colors[0]}"
   fi
 done
 
