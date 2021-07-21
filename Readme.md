@@ -4,10 +4,10 @@
   </a>
 </p>
 
-### Installation
+## Installation
 
 
-#### [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
+### [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 
 Add this line in your `.tmux.conf`
 
@@ -17,7 +17,7 @@ set -g @plugin 'o0th/tmux-nova'
 
 Hit <kbd>Prefix</kbd> + <kbd>I</kbd> to fetch the plugin and source it.
 
-#### Manual
+### Manual
 
 Clone the repository
 
@@ -37,27 +37,78 @@ Reload TMUX
 tmux source-file ~/.tmux.conf
 ```
 
-### Customizations
+## Customizations
 
-#### Themes
+### Themes
 
 ```bash
 # one of: "dracula", "nord"; default: "dracula"
 set -g @nova-theme "dracula"
 ```
 
-#### Justify
+### Justify
 
 ```bash
-# one of: "left", "right", "centre"; default: "left"
+# one of: "left", "right", "centre", "absolute-centre"; default: "left"
 set -g @nova-status-justify "left"
 ```
 
-#### Plugins
+### Double
 
 ```bash
-# list from: "mode", "whoami", "spotify"; default: "mode whoami", "spotify"
+# one of: true, false; default: true
+set -g @nova-double true
+```
+
+### Plugins
+
+```bash
+# list from: "mode", "whoami", "spotify", "cpu", "gpu"
+# default configuration:
 set -g @nova-status-left-plugins "mode whoami"
-set -g @nova-status-right-plugins "spotify"
+set -g @nova-status-right-plugins ""
+set -g @nova-status-bottom-left-plugins "spotify"
+set -g @nova-status-bottom-right-plugins "cpu gpu"
+```
+
+#### mode
+
+```bash
+# Change colors background foreground
+set -g @nova-plugins-mode-colors "#8be9fd #282a36"
+```
+
+#### whoami
+
+```bash
+# Change colors background foreground
+set -g @nova-plugins-whoami-colors "#8be9fd #282a36"
+```
+
+#### spotify
+
+Requirements: [pwittchen/spotify-cli-linux](https://github.com/pwittchen/spotify-cli-linux)
+
+```bash
+# Change colors background foreground
+set -g @nova-plugins-cpu-colors "#282a36 #f8f8f2"
+```
+
+#### cpu
+
+Requirements: [tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
+
+```bash
+# Change colors background foreground
+set -g @nova-plugins-cpu-colors "#282a36 #f8f8f2"
+```
+
+#### gpu
+
+Requirements: [tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
+
+```bash
+# Change colors background foreground
+set -g @nova-plugins-cpu-colors "#282a36 #f8f8f2"
 ```
 
