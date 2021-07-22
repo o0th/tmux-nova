@@ -22,7 +22,7 @@ else
   gpu_thermometer=""
 fi
 
-nerdfonts=$(option "@nova-nerdfonts" false)
+nerdfonts=$(get_option "@nova-nerdfonts" false)
 
 if [ "$nerdfonts" = true ]; then
   echo "$($scripts/gpu_percentage.sh) ﴿ $($scripts/gram_percentage.sh)     $gpu_temp糖$gpu_thermometer"
