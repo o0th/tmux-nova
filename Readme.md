@@ -67,6 +67,13 @@ set -g @nova-double true
 set -g @nova-nerdfonts false
 ```
 
+### Pane
+
+```bash
+# default: "#S:#I:#W"
+set -g @nova-pane "#{pane_title}"
+```
+
 ### Plugins
 
 ```bash

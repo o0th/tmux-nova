@@ -22,7 +22,7 @@ else
   cpu_thermometer=""
 fi
 
-nerdfonts=$(option "@nova-nerdfonts" false)
+nerdfonts=$(get_option "@nova-nerdfonts" false)
 
 if [ "$nerdfonts" = true ]; then
   echo "$($scripts/cpu_percentage.sh)  $($scripts/ram_percentage.sh)     $cpu_temp 糖$cpu_thermometer"
