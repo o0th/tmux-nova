@@ -105,7 +105,7 @@ Requirements: [pwittchen/spotify-cli-linux](https://github.com/pwittchen/spotify
 
 ```bash
 # Change colors background foreground
-set -g @nova-plugins-cpu-colors "#282a36 #f8f8f2"
+set -g @nova-plugins-spotify-colors "#282a36 #f8f8f2"
 ```
 
 #### cpu
@@ -123,6 +123,6 @@ Requirements: [tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
 
 ```bash
 # Change colors background foreground
-set -g @nova-plugins-cpu-colors "#282a36 #f8f8f2"
+set -g @nova-plugins-gpu-colors "#282a36 #f8f8f2"
 ```
 
