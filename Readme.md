@@ -71,58 +71,55 @@ set -g @nova-nerdfonts false
 
 ```bash
 # default: "#S:#I:#W"
-set -g @nova-pane "#{pane_title}"
+set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
 ```
 
-### Plugins
+### Segments
 
 ```bash
-# list from: "mode", "whoami", "spotify", "cpu", "gpu"
-# default configuration:
-set -g @nova-status-left-plugins "mode whoami"
-set -g @nova-status-right-plugins ""
-set -g @nova-status-bottom-left-plugins "spotify"
-set -g @nova-status-bottom-right-plugins "cpu gpu"
+set -g @nova-segments-left "mode"
+set -g @nova-segments-right "whoami"
+
+set -g @nova-double true
+set -g @nova-segments-bottom-right "mode"
+set -g @nova-segments-bottom-left "whoami"
 ```
 
-#### mode
+### Custom segments
+
+Define a custom segment using a cli (e.g.: [spotify-cli-liunx](https://github.com/pwittchen/spotify-cli-linux))
 
 ```bash
-# Change colors background foreground
-set -g @nova-plugins-mode-colors "#8be9fd #282a36"
+set -g @nova-segment-spotify "#(spotifycli --playbackstatus) #(spotifycli --status)"
+set -g @nova-segment-spotify-colors "#282a36 #f8f8f2"
+
+set -g @nova-segments-bottom-left "spotify"
 ```
 
-#### whoami
+Define a custom segment from another tmux plugin (e.g.: [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu))
 
 ```bash
-# Change colors background foreground
-set -g @nova-plugins-whoami-colors "#8be9fd #282a36"
+set -g @plugin 'tmux-plugins/tmux-cpu'
+
+set -g @cpu_percentage_format "%5.1f%%"
+set -g @cpu_temp_format "%3.0f"
+set -g @cpu_temp_unit "C"
+set -g @nova-segment-cpu "CPU #(~/.tmux/plugins/tmux-cpu/scripts/cpu_percentage.sh) #(~/.tmux/plugins/tmux-cpu/scripts/cpu_temp.sh)"
+set -g @nova-segment-cpu-colors "#282a36 #f8f8f2"
+
+set -g @ram_percentage_format "%5.1f%%"
+set -g @nova-segment-ram "RAM #(~/.tmux/plugins/tmux-cpu/scripts/ram_percentage.sh)"
+set -g @nova-segment-ram-colors "#282a36 #f8f8f2"
+
+set -g @gpu_percentage_format "%5.1f%%"
+set -g @gpu_temp_format "%3.0f"
+set -g @gpu_temp_unit "C"
+set -g @nova-segment-gpu "GPU #(~/.tmux/plugins/tmux-cpu/scripts/gpu_percentage.sh) #(~/.tmux/plugins/tmux-cpu/scripts/gpu_temp.sh)"
+set -g @nova-segment-gpu-colors "#282a36 #f8f8f2"
+
+set -g @gram_percentage_format "%5.1f%%"
+set -g @nova-segment-gram "GRAM #(~/.tmux/plugins/tmux-cpu/scripts/gram_percentage.sh)"
+set -g @nova-segment-gram-colors "#282a36 #f8f8f2"
+
+set -g @nova-segments-bottom-right "cpu ram gpu gram"
 ```
-
-#### spotify
-
-Requirements: [pwittchen/spotify-cli-linux](https://github.com/pwittchen/spotify-cli-linux)
-
-```bash
-# Change colors background foreground
-set -g @nova-plugins-spotify-colors "#282a36 #f8f8f2"
-```
-
-#### cpu
-
-Requirements: [tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
-
-```bash
-# Change colors background foreground
-set -g @nova-plugins-cpu-colors "#282a36 #f8f8f2"
-```
-
-#### gpu
-
-Requirements: [tmux-plugins/tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
-
-```bash
-# Change colors background foreground
-set -g @nova-plugins-gpu-colors "#282a36 #f8f8f2"
-```
-
