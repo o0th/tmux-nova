@@ -46,18 +46,12 @@ tmux source-file ~/.tmux.conf
 set -g @nova-theme "dracula"
 ```
 
-### Justify
+
+### Rows
 
 ```bash
-# one of: "left", "right", "centre", "absolute-centre"; default: "left"
-set -g @nova-status-justify "left"
-```
-
-### Double
-
-```bash
-# one of: true, false; default: true
-set -g @nova-double true
+# one of: 0, 1, 2, 3, 4; default: 0
+set -g @nova-rows 0
 ```
 
 ### Nerdfonts
@@ -74,15 +68,29 @@ set -g @nova-nerdfonts false
 set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
 ```
 
+### Pane justify
+
+```bash
+# one of: "left", "right", "centre", "absolute-centre"; default: "left"
+set -g @nova-pane-justify "left"
+```
+
 ### Segments
 
 ```bash
-set -g @nova-segments-left "mode"
-set -g @nova-segments-right "whoami"
+set -g @nova-rows 0
+set -g @nova-segments-0-left "mode"
+set -g @nova-segments-0-right "whoami"
+```
 
-set -g @nova-double true
-set -g @nova-segments-bottom-right "mode"
-set -g @nova-segments-bottom-left "whoami"
+Multiple status bar
+
+```bash
+set -g @nova-rows 1
+set -g @nova-segments-0-left "mode"
+set -g @nova-segments-0-right "whoami"
+set -g @nova-segments-1-right "spotify"
+set -g @nova-segments-1-left "net"
 ```
 
 ### Custom segments
@@ -93,10 +101,10 @@ Define a custom segment using a cli (e.g.: [spotify-cli-liunx](https://github.co
 set -g @nova-segment-spotify "#(spotifycli --playbackstatus) #(spotifycli --status)"
 set -g @nova-segment-spotify-colors "#282a36 #f8f8f2"
 
-set -g @nova-segments-bottom-left "spotify"
+set -g @nova-segments-1-left "spotify"
 ```
 
-Define a custom segment from another tmux plugin (e.g.: [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu))
+Example with [tmux-cpu](https://github.com/tmux-plugins/tmux-cpu)
 
 ```bash
 set -g @plugin 'tmux-plugins/tmux-cpu'
@@ -121,5 +129,16 @@ set -g @gram_percentage_format "%5.1f%%"
 set -g @nova-segment-gram "GRAM #(~/.tmux/plugins/tmux-cpu/scripts/gram_percentage.sh)"
 set -g @nova-segment-gram-colors "#282a36 #f8f8f2"
 
-set -g @nova-segments-bottom-right "cpu ram gpu gram"
+set -g @nova-segments-1-right "cpu ram gpu gram"
+```
+
+Example with [tmux-net-speed](https://github.com/tmux-plugins/tmux-net-speed)
+
+```bash
+set -g @net_speed_interfaces "enp6s0"
+set -g @net_speed_format "↓ %10s - ↑ %10s"
+set -g @nova-segment-net "#(~/.tmux/plugins/tmux-net-speed/scripts/net_speed.sh)"
+set -g @nova-segment-net-colors "#282a36 #f8f8f2"
+
+set -g @nova-segments-2-left "net"
 ```
