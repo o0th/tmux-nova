@@ -186,7 +186,7 @@ for segment in "${segments_right[@]}"; do
   fi
 done
 
-for ((row=1; row < rows; row++)); do
+for ((row=1; row <= rows; row++)); do
 
   #
   # segments-bottom-left
