@@ -192,6 +192,40 @@ for ((row=1; row <= rows; row++)); do
   fi
 
   #
+  # segments-n-center
+  #
+
+  nerdfonts_color="$status_style_double_bg"
+
+  segments_bottom_center=$(get_option "@nova-segments-$row-center" "")
+  IFS=' ' read -r -a segments_bottom_center <<< $segments_bottom_center
+
+  tmux set-option -ga status-format[$row] "#[align=centre]"
+
+  for segment in "${segments_bottom_center[@]}"; do
+    segment_content=$(get_option "@nova-segment-$segment")
+    segment_colors=$(get_option "@nova-segment-$segment-colors" "#282a36 #f8f8f2")
+    IFS=' ' read -r -a segment_colors <<< $segment_colors
+
+    if [ "$segment_content" != "" ]; then
+      if [ $nerdfonts = true ]; then
+        tmux set-option -ga status-format[$row] "#[fg=${nerdfonts_color},bg=#${segment_colors[0]}]"
+        tmux set-option -ga status-format[$row] "$nerdfonts_left"
+      fi
+
+      tmux set-option -ga status-format[$row] "#[fg=${segment_colors[1]},bg=${segment_colors[0]}]"
+      tmux set-option -ga status-format[$row] "$(padding $padding)"
+      tmux set-option -ga status-format[$row] "$segment_content"
+      tmux set-option -ga status-format[$row] "$(padding $padding)"
+
+      if [ $nerdfonts = true ]; then
+        tmux set-option -ga status-format[$row] "#[fg=${nerdfonts_color},bg=#${segment_colors[0]}]"
+        tmux set-option -ga status-format[$row] "$nerdfonts_right"
+      fi
+    fi
+  done
+
+  #
   # segments-n-right
   #
 
