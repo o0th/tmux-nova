@@ -138,19 +138,27 @@ for segment in "${segments_right[@]}"; do
   IFS=' ' read -r -a segment_colors <<< $segment_colors
   if [ "$segment_content" != "" ] && [ "$segment_colors" != "" ]; then
     if [ $nerdfonts = true ] && [ ! -n "$(tmux show-option -gqv status-right)" ]; then
-      tmux set-option -ga status-right "#[fg=${segment_colors[0]},bg=#${status_style_bg}]"
-      tmux set-option -ga status-right "$nerdfonts_right"
-    elif [ $nerdfonts = true ] && [ -n "$(tmux show-option -gqv status-right)" ]; then
-      tmux set-option -ga status-right "#[fg=${segment_colors[0]},bg=#${nerdfonts_color}]"
+      tmux set-option -ga status-right "#[bg=#${status_style_bg}]"
+    fi
+
+    # condition everything on the non emptiness of the evaluated segment
+    tmux set-option -ga status-right "#{?#{w:#{E:@nova-segment-$segment}},"
+
+    if [ $nerdfonts = true ]; then
+      tmux set-option -ga status-right "#[fg=${segment_colors[0]}]"
       tmux set-option -ga status-right "$nerdfonts_right"
     fi
 
-    tmux set-option -ga status-right "#[fg=${segment_colors[1]},bg=${segment_colors[0]}]"
+    tmux set-option -ga status-right "#[fg=${segment_colors[1]}#,bg=${segment_colors[0]}]"
     tmux set-option -ga status-right "$(padding $padding)"
     tmux set-option -ga status-right "$segment_content"
     tmux set-option -ga status-right "$(padding $padding)"
 
-    [ $nerdfonts = true ] && nerdfonts_color="${segment_colors[0]}"
+    # set the bg color for the next nerdfonts seperator
+    [ $nerdfonts = true ] && tmux set-option -ga status-right "#[bg=${segment_colors[0]}]"
+
+    # condition end
+    tmux set-option -ga status-right ',}'
   fi
 done
 
