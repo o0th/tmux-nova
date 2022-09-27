@@ -106,7 +106,7 @@ fi
 #
 
 pane_justify=$(get_option "@nova-pane-justify" "left")
-tmux set-option status-justify ${pane_justify}
+tmux set-option -g status-justify ${pane_justify}
 
 if [ $nerdfonts = true ]; then
   tmux set-window-option -g window-status-current-format "#[fg=${status_style_bg},bg=${status_style_active_bg}]"
