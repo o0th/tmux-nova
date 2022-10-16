@@ -25,7 +25,7 @@ Clone the repository
 git clone git@github.com:o0th/tmux-nova.git ~/.tmux/plugins/tmux-nova
 ```
 
-Add this line in your `.tmux.con`
+Add this line in your `.tmux.conf`
 
 ```bash
 run-shell ~/.tmux/plugins/tmux-nova/nova.tmux
