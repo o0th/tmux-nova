@@ -40,6 +40,22 @@ interval=$(get_option "@nova-interval" 5)
 tmux set-option -g interval $interval
 
 #
+# UI style
+#
+
+message_command_style_bg=$(get_option "@nova-message-command-style-bg" "#44475a")
+message_command_style_fg=$(get_option "@nova-message-command-style-fg" "#f8f8f2")
+tmux set-option -g message-command-style "bg=$message_command_style_bg,fg=$message_command_style_fg"
+
+message_style_bg=$(get_option "@nova-message-style-bg" "#282a36")
+message_style_fg=$(get_option "@nova-message-style-fg" "#f8f8f2")
+tmux set-option -g message-style "bg=$message_style_bg,fg=$message_style_fg"
+
+mode_style_bg=$(get_option "@nova-mode-style-bg" "#44475a")
+mode_style_fg=$(get_option "@nova-mode-style-fg" "#f8f8f2")
+tmux set-option -g mode-style "bg=$mode_style_bg,fg=$mode_style_fg"
+
+#
 # status-style
 #
 
