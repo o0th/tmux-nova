@@ -2,7 +2,7 @@
 
 <p align="center">
   <a>
-    <img src="/assets/o0th.png" alt="screenshot">
+    <img src="assets/o0th.png" alt="screenshot">
   </a>
 </p>
 
@@ -71,7 +71,7 @@ set -g @nova-segments-1-right "cpu ram cpu-temp gpu gram gpu-temp"
 
 <p align="center">
   <a>
-    <img src="/assets/gruvbox.png" alt="screenshot">
+    <img src="assets/gruvbox.png" alt="screenshot">
   </a>
 </p>
 
