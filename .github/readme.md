@@ -1,6 +1,6 @@
 <p align="center">
   <a>
-    <img src="/assets/screenshot.png" alt="screenshot">
+    <img src="assets/screenshot.png" alt="screenshot">
   </a>
 </p>
 
