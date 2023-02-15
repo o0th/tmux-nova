@@ -110,5 +110,5 @@ set -g @nova-segment-whoami-colors "#78a2c1 #2e3440"
 
 ### Gallery
 
-For more example have a look at the have a look at the [gallery](Gallery.md).
+For more example have a look at the have a look at the [gallery](gallery.md).
 
