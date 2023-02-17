@@ -123,6 +123,8 @@ set -g @nova-segments-0-right "whoami"
 
 ### Nerdfonts
 
+Default
+
 <p align="center">
   <a><img src="assets/tmux-nova-nerdfonts.png" alt="screenshot"></a>
 </p>
@@ -130,6 +132,19 @@ set -g @nova-segments-0-right "whoami"
 ```bash
 # one of: true, false; default: false
 set -g @nova-nerdfonts true
+```
+
+Custom
+
+<p align="center">
+  <a><img src="assets/tmux-nova-nerdfonts-custom.png" alt="screenshot"></a>
+</p>
+
+```bash
+# one of: true, false; default: false
+set -g @nova-nerdfonts true
+set -g @nova-nerdfonts-left 
+set -g @nova-nerdfonts-right 
 ```
 
 ### Nord theme
