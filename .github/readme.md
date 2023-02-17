@@ -147,22 +147,26 @@ set -g @nova-nerdfonts-left 
 set -g @nova-nerdfonts-right 
 ```
 
-### Nord theme
+### Rows
+
+Define how many status line to show.
+
+<p align="center">
+  <a><img src="assets/tmux-nova-rows.png" alt="screenshot"></a>
+</p>
 
 ```bash
-set -g "@nova-pane-active-border-style" "#44475a"
-set -g "@nova-pane-border-style" "#282a36"
-set -g "@nova-status-style-bg" "#4c566a"
-set -g "@nova-status-style-fg" "#d8dee9"
-set -g "@nova-status-style-active-bg" "#89c0d0"
-set -g "@nova-status-style-active-fg" "#2e3540"
-set -g "@nova-status-style-double-bg" "#2d3540"
+# one of: 0, 1, 2, 3, 4; default: 0
+set -g @nova-rows 1
 
-set -g @nova-segment-mode "#{?client_prefix,Ω,ω}"
-set -g @nova-segment-mode-colors "#78a2c1 #2e3440"
+set -g @nova-segment-bleft "bottom left"
+set -g @nova-segment-bleft-colors "#282a36 #f8f8f2"
 
-set -g @nova-segment-whoami "#(whoami)@#h"
-set -g @nova-segment-whoami-colors "#78a2c1 #2e3440"
+set -g @nova-segment-bright "bottom right"
+set -g @nova-segment-bright-colors "#282a36 #f8f8f2"
+
+set -g @nova-segments-1-left "bleft"
+set -g @nova-segments-1-right "bright"
 ```
 
 ### Gallery
