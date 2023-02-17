@@ -39,6 +39,8 @@ tmux source-file ~/.tmux.conf
 To achieve the screenshot look use this configuration
 
 ```bash
+set -g @plugin 'o0th/tmux-nova'
+
 set -g @nova-nerdfonts true
 set -g @nova-nerdfonts-left 
 set -g @nova-nerdfonts-right 
