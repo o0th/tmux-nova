@@ -47,6 +47,12 @@ tmux source-file ~/.tmux.conf
   </a>
 </p>
 
+<p align="center">
+  <a>
+    <img src="assets/no-conf-large.png" alt="screenshot">
+  </a>
+</p>
+
 ### Rows
 
 Define how many status line to show.
