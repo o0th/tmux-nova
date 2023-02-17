@@ -114,15 +114,25 @@ Mode segment
 ```bash
 set -g @nova-segment-mode "#{?client_prefix,Ω,ω}"
 set -g @nova-segment-mode-colors "#50fa7b #282a36"
+
 set -g @nova-segments-0-left "mode"
 set -g @nova-segments-0-right ""
 ```
 
 Whoami segment
 
+<p align="center">
+  <a><img src="assets/tmux-nova-segment-whoami.png" alt="screenshot"></a>
+</p>
+
 ```bash
+set -g @nova-segment-mode "#{?client_prefix,Ω,ω}"
+set -g @nova-segment-mode-colors "#50fa7b #282a36"
+
 set -g @nova-segment-whoami "#(whoami)@#h"
 set -g @nova-segment-whoami-colors "#50fa7b #282a36"
+
+set -g @nova-segments-0-left "mode"
 set -g @nova-segments-0-right "whoami"
 ```
 
