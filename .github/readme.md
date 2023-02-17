@@ -43,13 +43,7 @@ tmux source-file ~/.tmux.conf
 
 <p align="center">
   <a>
-    <img src="assets/no-conf.png" alt="screenshot">
-  </a>
-</p>
-
-<p align="center">
-  <a>
-    <img src="assets/no-conf-large.png" alt="screenshot">
+    <img src="assets/tmux-nova-no-conf.png" alt="screenshot">
   </a>
 </p>
 
