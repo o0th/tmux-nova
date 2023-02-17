@@ -43,7 +43,7 @@ tmux source-file ~/.tmux.conf
 
 <p align="center">
   <a>
-    <img src="assets/no-conf-round.png" alt="screenshot">
+    <img src="assets/no-conf.png" alt="screenshot">
   </a>
 </p>
 
