@@ -74,14 +74,14 @@ set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
 
 Pane position
 
+<p align="center">
+  <a><img src="assets/tmux-nova-pane-centre.png" alt="screenshot"></a>
+</p>
+
 ```bash
 # one of: "left", "right", "centre", "absolute-centre"; default: "left"
 set -g @nova-pane-justify "centre"
 ```
-
-<p align="center">
-  <a><img src="assets/tmux-nova-pane-centre.png" alt="screenshot"></a>
-</p>
 
 ### Segments
 
