@@ -76,8 +76,12 @@ Pane position
 
 ```bash
 # one of: "left", "right", "centre", "absolute-centre"; default: "left"
-set -g @nova-pane-justify "left"
+set -g @nova-pane-justify "centre"
 ```
+
+<p align="center">
+  <a><img src="assets/tmux-nova-pane-centre.png" alt="screenshot"></a>
+</p>
 
 ### Segments
 
