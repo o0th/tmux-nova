@@ -103,3 +103,7 @@ If you want to learn how to customize this theme have a look at the [documentati
 
 For more example have a look at the have a look at the [gallery](gallery.md).
 
+
+## Contributors
+
+[<img alt="goolmoos" src="https://avatars.githubusercontent.com/u/49814019?v=4&s=117" width="117">](https://github.com/goolmoos)[<img alt="fky2015" src="https://avatars.githubusercontent.com/u/16451516?v=4&s=117" width="117">](https://github.com/fky2015)[<img alt="ofirgall" src="https://avatars.githubusercontent.com/u/4954051?v=4&s=117" width="117">](https://github.com/ofirgall)[<img alt="codepeon" src="https://avatars.githubusercontent.com/u/32979574?v=4&s=117" width="117">](https://github.com/codepeon)
