@@ -12,7 +12,7 @@ padding=$(get_option "@nova-padding" 1)
 nerdfonts=$(get_option "@nova-nerdfonts" false)
 nerdfonts_right=$(get_option "@nova-nerdfonts-right" )
 nerdfonts_left=$(get_option "@nova-nerdfonts-left" )
-rows=$(get_option "@nova-rows" 1)
+rows=$(get_option "@nova-rows" 0)
 pane=$(get_option "@nova-pane" "#S:#I:#W")
 
 #
