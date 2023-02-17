@@ -67,6 +67,10 @@ set -g @nova-nerdfonts false
 
 Pane content
 
+<p align="center">
+  <a><img src="assets/tmux-nova-pane.png" alt="screenshot"></a>
+</p>
+
 ```bash
 # default: "#S:#I:#W"
 set -g @nova-pane "#I#{?pane_in_mode,  #{pane_mode},}  #W"
