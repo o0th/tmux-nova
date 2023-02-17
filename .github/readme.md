@@ -89,6 +89,22 @@ set -g @nova-pane-justify "centre"
 
 ### Segments
 
+Create a custom segment
+
+<p align="center">
+  <a><img src="assets/tmux-nova-segment-custom.png" alt="screenshot"></a>
+</p>
+
+```bash
+# this will create a new segment named 'custom'
+set -g @nova-segment-custom "custom"
+set -g @nova-segment-custom-colors "#50fa7b #282a36"
+
+# this will position the custom segment on the right side
+set -g @nova-segments-0-left ""
+set -g @nova-segments-0-right "custom"
+```
+
 Mode segment
 
 ```bash
