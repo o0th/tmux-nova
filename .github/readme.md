@@ -39,14 +39,6 @@ tmux source-file ~/.tmux.conf
 
 ## Customizations
 
-### No configuration
-
-<p align="center">
-  <a>
-    <img src="assets/tmux-nova-no-conf.png" alt="screenshot">
-  </a>
-</p>
-
 ### Rows
 
 Define how many status line to show.
@@ -54,13 +46,6 @@ Define how many status line to show.
 ```bash
 # one of: 0, 1, 2, 3, 4; default: 0
 set -g @nova-rows 0
-```
-
-### Nerdfonts
-
-```bash
-# one of: true, false; default: false
-set -g @nova-nerdfonts false
 ```
 
 ### Pane
@@ -134,6 +119,17 @@ set -g @nova-segment-whoami-colors "#50fa7b #282a36"
 
 set -g @nova-segments-0-left "mode"
 set -g @nova-segments-0-right "whoami"
+```
+
+### Nerdfonts
+
+<p align="center">
+  <a><img src="assets/tmux-nova-nerdfonts.png" alt="screenshot"></a>
+</p>
+
+```bash
+# one of: true, false; default: false
+set -g @nova-nerdfonts true
 ```
 
 ### Nord theme
