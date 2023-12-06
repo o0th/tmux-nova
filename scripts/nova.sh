@@ -130,9 +130,9 @@ if [ $nerdfonts = true ]; then
 fi
 
 tmux set-window-option -g window-status-format "#[fg=$status_style_fg]#[bg=$status_style_bg]"
-tmux set-window-option -ga window-status-format "$(padding $padding)"
+tmux set-window-option -ga window-status-format "$(padding $(($padding + 1)))"
 tmux set-window-option -ga window-status-format "$pane"
-tmux set-window-option -ga window-status-format "$(padding $padding)"
+tmux set-window-option -ga window-status-format "$(padding $(($padding + 1)))"
 
 if [ $nerdfonts = true ]; then
   tmux set-window-option -ga window-status-current-format "#[fg=${status_style_active_fg}]#[bg=${status_style_active_bg}]"
