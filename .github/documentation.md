@@ -1,4 +1,4 @@
-## Documentation 
+## Documentation
 
 ### Pane
 
@@ -119,4 +119,39 @@ set -g @nova-segment-bright-colors "#282a36 #f8f8f2"
 
 set -g @nova-segments-1-left "bleft"
 set -g @nova-segments-1-right "bright"
+```
+
+### Use plugin variables
+
+Define variables you want to load to be used in segments.
+
+<p align="center">
+  <a><img src="assets/tmux-nova-plugin-variables.png" alt="screenshot"></a>
+</p>
+
+```bash
+# Load plugin variables to be used in tmux-nova, separated by space
+# before declaration of plugins
+run-shell "~/.tmux/plugins/tmux-nova/scripts/load_plugin_variables.sh pomodoro_status music_percentage music_status artist track"
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-battery'
+set -g @plugin 'robhurring/tmux-spotify'
+set -g @plugin 'olimorris/tmux-pomodoro-plus'
+set -g @plugin 'o0th/tmux-nova' # Must be the last on the list
+
+set -g @nova-segment-pomodoro "#(#{pomodoro_status})"
+set -g @nova-segment-pomodoro-colors "colour1 colour8"
+
+set -g @nova-segment-battery "#(#{battery_percentage})"
+set -g @nova-segment-battery-colors "colour11 colour8"
+
+set -g @nova-segment-spotify "#(#{music_status}) #(#{artist}): #(#{track})"
+set -g @nova-segment-spotify-colors "colour4 colour8"
+
+set -g @nova-segment-time "%d/%m %H:%M"
+set -g @nova-segment-time-colors "colour5 colour8"
+
+set -g @nova-segments-0-right "pomodoro spotify battery time"
 ```

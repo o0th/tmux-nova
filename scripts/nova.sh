@@ -75,6 +75,26 @@ tmux set-option -g pane-border-style "fg=${pane_border_style}"
 tmux set-option -g pane-active-border-style "fg=${pane_active_border_style}"
 
 #
+# load variables
+#
+
+var_names=$(tmux show-environment -g @nova-load-variables | sed 's/@nova-load-variables=//')
+IFS=' ' read -r -a var_names<<< $var_names
+length=${#var_names[@]}
+
+vars=$(get_option "status-left" "")
+IFS='*' read -r -a vars<<< $vars
+
+for ((j = 0; j < ${length}; j++)); do
+  interpolated_var="${vars[$j]}"
+  var_name="${var_names[$j]}"
+
+  stripped_var=$(echo $interpolated_var | sed 's/#(//' | sed 's/)//')
+  tmux set-environment -g "$var_name" "$stripped_var"
+done
+
+
+#
 # segments-0-left
 #
 
