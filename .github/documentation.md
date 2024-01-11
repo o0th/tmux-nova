@@ -1,4 +1,4 @@
-## Documentation 
+## Documentation
 
 ### Pane
 
@@ -97,6 +97,11 @@ Custom
 set -g @nova-nerdfonts true
 set -g @nova-nerdfonts-left 
 set -g @nova-nerdfonts-right 
+```
+
+```bash
+set -g @nova-nerdfonts-first 
+set -g @nova-nerdfonts-last 
 ```
 
 ### Rows
