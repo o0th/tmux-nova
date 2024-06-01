@@ -104,6 +104,19 @@ If you want to learn how to customize this theme have a look at the [documentati
 For more example have a look at the have a look at the [gallery](gallery.md).
 
 
+## FAQ
+
+**Why are my components being cut off or truncated?**
+By default tmux set `status-left-length` to 20 characters and `status-right-length` to 40 characters,
+which may cause components to be truncated or cut off if their combined length exceeds these limits.
+To resolve this issue you can adjust this default values with:
+
+```bash
+# .tmux.conf
+set -g status-left-length 100
+set -g status-right-length 100
+```
+
 ## Contributors
 
 [<img alt="goolmoos" src="https://avatars.githubusercontent.com/u/49814019?v=4&s=117" width="117">](https://github.com/goolmoos)[<img alt="fky2015" src="https://avatars.githubusercontent.com/u/16451516?v=4&s=117" width="117">](https://github.com/fky2015)[<img alt="ofirgall" src="https://avatars.githubusercontent.com/u/4954051?v=4&s=117" width="117">](https://github.com/ofirgall)[<img alt="codepeon" src="https://avatars.githubusercontent.com/u/32979574?v=4&s=117" width="117">](https://github.com/codepeon)
