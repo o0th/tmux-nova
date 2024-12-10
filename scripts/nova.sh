@@ -63,6 +63,7 @@ status_style_bg=$(get_option "@nova-status-style-bg" "#44475a")
 status_style_fg=$(get_option "@nova-status-style-fg" "#f8f8f2")
 status_style_active_bg=$(get_option "@nova-status-style-active-bg" "#6272a4")
 status_style_active_fg=$(get_option "@nova-status-style-active-fg" "#f8f8f2")
+status_style_activity_fg=$(get_option "@nova-status-activity-fg" "#ff79C6")
 tmux set-option -g status-style "bg=$status_style_bg,fg=$status_style_fg"
 
 #
@@ -135,7 +136,9 @@ if [ $nerdfonts = true ]; then
   tmux set-window-option -ga window-status-current-format "$nerdfonts_left"
 fi
 
-tmux set-window-option -g window-status-format "#[fg=$status_style_fg]#[bg=$status_style_bg]"
+tmux set-window-option -g window-status-format "#{?window_activity_flag,"
+tmux set-window-option -ga window-status-format "#[fg=$status_style_activity_fg#,bg=$status_style_bg],"
+tmux set-window-option -ga window-status-format "#[fg=$status_style_fg#,bg=$status_style_bg]}"
 
 if [ $nerdfonts = true ]; then
   tmux set-window-option -ga window-status-format "$(padding $(($padding + 1)))"
