@@ -137,7 +137,7 @@ if [ $nerdfonts = true ]; then
 fi
 
 tmux set-window-option -g window-status-format "#{?window_activity_flag,"
-tmux set-window-option -ga window-status-format "#[fg=$status_style_activity_fg#,bg=$status_style_bg],"
+tmux set-window-option -ga window-status-format "#[bg=$status_style_activity_fg#,fg=$status_style_bg],"
 tmux set-window-option -ga window-status-format "#[fg=$status_style_fg#,bg=$status_style_bg]}"
 
 if [ $nerdfonts = true ]; then
