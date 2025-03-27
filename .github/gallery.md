@@ -120,6 +120,8 @@ set -g @nova-segments-0-left "session"
 set -g @nova-segments-0-right "prefix cpu battery layout whoami"
 ```
 
+---
+
 ### Cyberdream
 
 <p align="center">
