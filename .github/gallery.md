@@ -57,7 +57,7 @@ set -g @nova-segments-1-right "gpu gram gpu-temp"
 ### gruvbox
 
 <p align="center">
-  <a><img src="assets/gruvbox.png" alt="screenshot"></a>
+  <a><img src="assets/gallery/gruvbox.png" alt="screenshot"></a>
 </p>
 
 ```bash
@@ -118,4 +118,31 @@ set -g @nova-segment-layout-colors "$seg_a"
 
 set -g @nova-segments-0-left "session"
 set -g @nova-segments-0-right "prefix cpu battery layout whoami"
+```
+
+### Cyberdream
+
+<p align="center">
+  <a><img src="assets/gallery/cyberdream.png" alt="screenshot"></a>
+</p>
+
+```bash
+set -g @nova-segment-mode "#S #{?client_prefix, , } "
+set -g @nova-segment-mode-colors " #181818 #ff5ea0"
+
+set -g @nova-segment-whoami " #(whoami) | 󰍹 #h"
+set -g @nova-segment-whoami-colors " #252525 #ff5ea0 "
+
+set -g @nova-pane "#I#{?pane_in_mode, #{pane_mode},}  #W"
+set -g @nova-pane-active-border-style "#252525"
+set -g @nova-pane-border-style "#252525"
+
+set -g @nova-status-style-bg "#181818"
+set -g @nova-status-style-fg "#d8dee9"
+set -g @nova-status-style-active-bg "#5ef1ff"
+set -g @nova-status-style-active-fg "#181818"
+
+set -g @nova-rows 0
+set -g @nova-segments-0-left "mode"
+set -g @nova-segments-0-right "whoami"
 ```
