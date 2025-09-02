@@ -234,7 +234,7 @@ for ((row=1; row <= rows; row++)); do
     segment_colors=$(get_option "@nova-segment-$segment-colors" "#282a36 #f8f8f2")
     IFS=' ' read -r -a segment_colors <<< $segment_colors
     if [ "$segment_content" != "" ]; then
-      if [ $nerdfonts = true ] && [ "$(tmux show-option -gqv status-format[$row])" != "#[align=left]"]; then
+      if [ $nerdfonts = true ] && [ "$(tmux show-option -gqv status-format[$row])" != *"#[align=left]"]; then
         tmux set-option -ga status-format[$row] "#[fg=${nerdfonts_color},bg=#${segment_colors[0]}]"
         tmux set-option -ga status-format[$row] "$nerdfonts_left"
       fi
