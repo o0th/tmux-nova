@@ -119,4 +119,4 @@ set -g status-right-length 100
 
 ## Contributors
 
-[<img alt="goolmoos" src="https://avatars.githubusercontent.com/u/49814019?v=4&s=117" width="117">](https://github.com/goolmoos)[<img alt="fky2015" src="https://avatars.githubusercontent.com/u/16451516?v=4&s=117" width="117">](https://github.com/fky2015)[<img alt="ofirgall" src="https://avatars.githubusercontent.com/u/4954051?v=4&s=117" width="117">](https://github.com/ofirgall)[<img alt="codepeon" src="https://avatars.githubusercontent.com/u/32979574?v=4&s=117" width="117">](https://github.com/codepeon)
+[<img alt="goolmoos" src="https://github.com/goolmoos.png" width="117">](https://github.com/goolmoos)[<img alt="fky2015" src="https://github.com/fky2015.png" width="117">](https://github.com/fky2015)[<img alt="ofirgall" src="https://github.com/ofirgall.png" width="117">](https://github.com/ofirgall)[<img alt="codepeon" src="https://github.com/codepeon.png" width="117">](https://github.com/codepeon)[<img alt="quiquecmtt" src="https://github.com/quiquecmtt.png" width="117">](https://github.com/quiquecmtt)[<img alt="pabroux" src="https://github.com/pabroux.png" width="117">](https://github.com/pabroux)
